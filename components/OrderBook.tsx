@@ -56,7 +56,7 @@ export const OrderBook = () => {
       <section className="mt-3">
         {activeTab === "Order Book" && <BorderlessTable />}
         {activeTab === "Recent Trades" && (
-          <div className="text-center text-gray-400">Recent Trades Data</div>
+          <div className="text-center text-gray-400 my-[91.5%]">No Recent Trades Data</div>
         )}
       </section>
     </div>
