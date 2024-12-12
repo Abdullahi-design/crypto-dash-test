@@ -12,6 +12,9 @@ const CandlestickChart = () => {
           autosize
           hide_top_toolbar={false}  // Hide the top toolbar (including tabs)
           hide_side_toolbar={true} // Optionally hide the side toolbar
+          save_image={false}
+          allow_symbol_change={false}
+          backgroundColor="rgba(32, 37, 43, 1)"
         />
       </div>
     </div>
