@@ -1,4 +1,4 @@
-import { CandlestickChart } from "@/components/CandlestickChart";
+import CandlestickChart from "@/components/CandlestickChart";
 import { Header } from "@/components/Header";
 import { Navbar } from "@/components/Navbar";
 import { OrderBook } from "@/components/OrderBook";
@@ -15,7 +15,7 @@ export default function Home() {
       <main className="flex flex-1 flex-col md:flex-row">
         <section className="flex w-full flex-col">
           {/* CandlestickChart and OrderBook Side by Side */}
-          <div className="flex w-full min-h-fit">
+          <div className="block md:flex w-full min-h-fit">
             <div className="flex-1 p-1">
               <CandlestickChart />
             </div>
