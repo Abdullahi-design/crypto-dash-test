@@ -9,7 +9,7 @@ export const OrderBook = () => {
   const [activeTab, setActiveTab] = useState("Order Book");
 
   return (
-    <div className="bg-[#20252B] rounded p-4">
+    <div className="bg-[#20252B] rounded-xl p-4">
       {/* Toggle Section */}
       <section className="flex justify-between p-1 bg-[#12171D] rounded-xl">
         <h1

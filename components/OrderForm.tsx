@@ -28,6 +28,93 @@ export const OrderForm = () => {
 
   const handleOptionChange = (value: string) => setSelectedOption(value);
 
+  const renderBreadcrumbContent = () => {
+    switch (activeBreadcrumb) {
+      case "Limit":
+        return (
+          <div className="space-y-4">
+            <FInput
+              title="Limit price"
+              placeholder="0.00 USD"
+              value={limitPrice}
+              onChange={handleLimitPriceChange}
+            />
+            <FInput
+              title="Amount"
+              placeholder="0.00 USD"
+              value={amount}
+              onChange={handleAmountChange}
+            />
+            <FSelect
+              title="Type"
+              placeholder="Type"
+              value={selectedOption}
+              onChange={handleOptionChange}
+              options={[
+                { label: "Fill or kill", value: "Fill or kill" },
+                { label: "Good till cancelled", value: "Good till cancelled" },
+                { label: "Good till date", value: "Good till date" },
+              ]}
+            />
+            <div className="flex items-center mt-4 space-x-2">
+              <input type="checkbox" id="post-only" className="accent-blue-500" />
+              <label htmlFor="post-only" className="text-gray-400 text-sm">
+                Post Only
+              </label>
+              <Image width={15} height={15} src={InfoCircle} alt="InfoCircle" />
+            </div>
+          </div>
+        );
+      case "Market":
+        return (
+          <div>
+            <FInput
+              title="Amount"
+              placeholder="0.00 USD"
+              value={amount}
+              onChange={handleAmountChange}
+            />
+          </div>
+        );
+      case "Stop-Limit":
+        return (
+          <div className="space-y-4">
+            <FInput
+              title="Trigger price"
+              placeholder="0.00 USD"
+              value={limitPrice}
+              onChange={handleLimitPriceChange}
+            />
+            <FInput
+              title="Limit price"
+              placeholder="0.00 USD"
+              value={limitPrice}
+              onChange={handleLimitPriceChange}
+            />
+            <FInput
+              title="Amount"
+              placeholder="0.00 USD"
+              value={amount}
+              onChange={handleAmountChange}
+            />
+            <FSelect
+              title="Type"
+              placeholder="Type"
+              value={selectedOption}
+              onChange={handleOptionChange}
+              options={[
+                { label: "Fill or kill", value: "Fill or kill" },
+                { label: "Good till cancelled", value: "Good till cancelled" },
+                { label: "Good till date", value: "Good till date" },
+              ]}
+            />
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="bg-[#20252B] p-4 rounded-xl w-[300px]">
       {/* Buy/Sell Tabs */}
@@ -71,32 +158,9 @@ export const OrderForm = () => {
         ))}
       </div>
 
-      {/* Input Fields */}
-      <div className="space-y-4">
-        <FInput title="Limit price" placeholder="0.00 USD" value={limitPrice} onChange={handleLimitPriceChange} />
-        <FInput title="Amount" placeholder="0.00 USD" value={amount} onChange={handleAmountChange} />
-        <FSelect
-          title="Type"
-          placeholder="Type"
-          value={selectedOption}
-          onChange={handleOptionChange}
-          options={[
-            { label: "Fill or kill", value: "Fill or kill" },
-            { label: "Good till cancelled", value: "Good till cancelled" },
-            { label: "Good till date", value: "Good till date" },
-          ]}
-        />
-      </div>
-
-      {/* Checkbox and Total */}
-      <div className="flex items-center mt-4 space-x-2">
-        <input type="checkbox" id="post-only" className="accent-blue-500" />
-        <label htmlFor="post-only" className="text-gray-400 text-sm">
-          Post Only
-        </label>
-        <Image width={15} height={15} src={InfoCircle} alt="InfoCircle" />
-      </div>
-      <div className="mt-2 flex justify-between text-gray-400 text-sm">
+      {/* Dynamic Input Fields */}
+      <div className="space-y-4">{renderBreadcrumbContent()}</div>
+      <div className="mt-4 flex justify-between text-gray-400 text-sm">
         Total: <span className="">0.00</span>
       </div>
 
