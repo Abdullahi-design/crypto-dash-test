@@ -6,7 +6,7 @@ import { OrderForm } from "@/components/OrderForm";
 
 export default function Home() {
   return (
-    <div className="bg-[#32383F] text-white h-screen flex flex-col">
+    <div className="bg-[#32383F] text-white min-h-screen flex flex-col">
       <Navbar />
       <Header />
       <main className="flex flex-1 flex-col md:flex-row">

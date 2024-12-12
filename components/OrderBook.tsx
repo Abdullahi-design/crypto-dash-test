@@ -1,50 +1,66 @@
+"use client";
+
+import { useState } from "react";
 import { Order1, Order2, Order3 } from "@/utils/icons";
 import Image from "next/image";
 import BorderlessTable from "./BorderlessTable";
 
-export const OrderBook = () => (
-    <div className="bg-[#20252B] rounded p-4">
-        <section className="flex justify-between p-1 bg-[#12171D] rounded-xl">
-            <h1 className="bg-[#20252B] p-1 px-4 text-sm rounded-xl cursor-pointer">Order Book</h1>
-            <h1 className=" p-1 px-4 text-sm text-gray-500 cursor-pointer">Recent Trades</h1>
-        </section>
-        <section className="flex justify-between mt-3">
-            <div className="flex">
-                <Image
-                    width={40}
-                    height={40}
-                    src={Order1}
-                    alt="Order1"
-                />
-                <Image
-                    width={40}
-                    height={40}
-                    src={Order2}
-                    alt="Order2"
-                />
-                <Image
-                    width={40}
-                    height={40}
-                    src={Order3}
-                    alt="Order3"
-                />
-            </div>
-            <select name="" id="" className="bg-[#353945] cursor-pointer h-10 outline-none rounded-xl w-[30%]">
-                <option value="1">10</option>
-                <option value="1">9</option>
-                <option value="1">8</option>
-                <option value="1">7</option>
-                <option value="1">6</option>
-                <option value="1">5</option>
-                <option value="1">4</option>
-                <option value="1">3</option>
-                <option value="1">2</option>
-                <option value="1">1</option>
-            </select>
-        </section>
+export const OrderBook = () => {
+  const [activeTab, setActiveTab] = useState("Order Book");
 
-        <section className="mt-3">
-            <BorderlessTable/>
+  return (
+    <div className="bg-[#20252B] rounded p-4">
+      {/* Toggle Section */}
+      <section className="flex justify-between p-1 bg-[#12171D] rounded-xl">
+        <h1
+          onClick={() => setActiveTab("Order Book")}
+          className={`p-1 px-4 text-sm rounded-xl cursor-pointer ${
+            activeTab === "Order Book" ? "bg-[#20252B]" : "text-gray-500"
+          }`}
+        >
+          Order Book
+        </h1>
+        <h1
+          onClick={() => setActiveTab("Recent Trades")}
+          className={`p-1 px-4 text-sm rounded-xl cursor-pointer ${
+            activeTab === "Recent Trades" ? "bg-[#20252B]" : "text-gray-500"
+          }`}
+        >
+          Recent Trades
+        </h1>
+      </section>
+
+      {/* Order Icons and Dropdown */}
+      {activeTab === "Order Book" && (
+        <section className="flex justify-between mt-3">
+          <div className="flex">
+            <Image width={40} height={40} src={Order1} alt="Order1" />
+            <Image width={40} height={40} src={Order2} alt="Order2" />
+            <Image width={40} height={40} src={Order3} alt="Order3" />
+          </div>
+          <select
+            name="order-count"
+            id="order-count"
+            className="bg-[#353945] cursor-pointer h-10 outline-none rounded-xl w-[30%]"
+          >
+            {Array.from({ length: 10 }, (_, i) => (
+              <option key={i} value={10 - i}>
+                {10 - i}
+              </option>
+            ))}
+          </select>
         </section>
+      )}
+
+      {/* Dynamic Table Section */}
+      <section className="mt-3">
+        {activeTab === "Order Book" && <BorderlessTable />}
+        {activeTab === "Recent Trades" && (
+          <div className="text-center text-gray-400">Recent Trades Data</div>
+        )}
+      </section>
     </div>
-);
+  );
+};
+
+export default OrderBook;
