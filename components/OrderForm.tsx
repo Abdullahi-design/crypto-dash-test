@@ -112,7 +112,7 @@ export const OrderForm = () => {
       </button>
 
       {/* Account Details */}
-      <section className="mt-4 text-gray-400 text-sm border-t border-gray-600 p-2">
+      <section className="mt-4 text-gray-400 text-sm border-t border-gray-600 pt-8">
         <div className="flex justify-between items-center">
           <div>
             <h1>Total account value</h1>

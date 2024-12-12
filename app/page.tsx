@@ -8,7 +8,9 @@ export default function Home() {
   return (
     <div className="bg-[#32383F] text-white min-h-screen flex flex-col">
       <Navbar />
-      <Header />
+      <div className=" mt-20">
+        <Header />
+      </div>
       <main className="flex flex-1 flex-col md:flex-row">
         <section className="flex-1 p-1">
           <CandlestickChart />

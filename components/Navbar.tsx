@@ -13,7 +13,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#32383F] flex p-2 px-8 justify-between items-center border-b border-gray-700 relative">
+    <nav className="bg-[#32383F] fixed w-full z-50 flex p-2 px-8 justify-between items-center border-b border-gray-700">
       <section className="flex items-center space-x-12">
         <Image
           width={150}
