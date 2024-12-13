@@ -13,6 +13,7 @@ import NGN from '../public/assets/svgs/ngn.svg';
 import GBP from '../public/assets/svgs/gbp.svg';
 import USD from '../public/assets/svgs/usd.svg';
 import EUR from '../public/assets/svgs/eur.svg';
+import BTCUSDT from '../public/assets/svgs/BTC_USDT.svg';
 
 export { 
     Logo,
@@ -30,4 +31,5 @@ export {
     GBP,
     USD,
     EUR,
+    BTCUSDT,
 }
