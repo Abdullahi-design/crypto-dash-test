@@ -10,11 +10,11 @@ const CandlestickChart = () => {
           symbol="BTCUSDT"
           theme="dark"
           autosize
-          hide_top_toolbar={false}
-          hide_side_toolbar={true}
-          save_image={false}
-          allow_symbol_change={false}
-          backgroundColor="rgba(32, 37, 43, 1)"
+          // hide_top_toolbar={false}
+          // hide_side_toolbar={true}
+          // save_image={false}
+          // allow_symbol_change={false}
+          // backgroundColor="rgba(32, 37, 43, 1)"
         />
       </div>
     </div>
